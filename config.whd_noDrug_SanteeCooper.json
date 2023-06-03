@@ -1,0 +1,105 @@
+{
+    "simulation" : {
+        "schema_file_name" : "schema.config.json",
+        "total_steps" : 1500,
+        "total_population" : 1000,
+        "title": "WHD model dev phase 1",
+        "batch_mode" : true
+    },
+
+    "whd" : {
+        "whd_level" : 0,
+        "II50" : 2000000000,
+        "pmf" : 14.0,
+        "gamma": 0.85,
+        "maxcyt": 0.3,
+        "kfever": 1.115,
+        "kfever_multiplier": 0.025,
+        "memory": 0.35,
+        "decay": 150,
+        "switchrate": 0.02,
+        "immunestack": 2.0,
+        "switcheffect": 54.0,
+        "maxinit": 50000,
+        "etac": 5.0,
+        "etah": 3.0,
+        "x50ab": 80000000000,
+        "x50ab_multiplier": 0.1,
+        "kab": 0.11,
+        "kab_multiplier": 0.01,
+        "abprod": 1.0,
+        "abdecay": 20.0,
+        "killcyt": 3.15,
+        "killab": 2.45,
+        "killab_multiplier": 0.01,
+        "kmsp": 0.0853,
+        "Cmer": 0.358,
+        "kg_divisor": 9,
+        "kmg_divisor": 10,
+        "kgam": 0.005,
+        "kgametocyte": 0.01,
+        "pt": 2000000000,
+        "C50g": 0.005,
+        "gam50": 50000,
+        "dosingpk": 4000.0,
+        "dosingpip": 960.0,
+        "killratedha": 3.25,
+        "killratepip": 1.75,
+        "ce50dha": 300.0,
+        "ce50pip": 450.0,
+        "hdha": 3.0,
+        "hpip": 3.0,
+        "npk": 9,
+        "npip": 6,
+        "p0_initial_val": 20000,
+        "with_drug": false,
+             
+        "transition_matrix" : {
+            "Jpk" : {
+                "CL": 3.2500,
+                "V2": 5.3750,
+                "THETA_3_divident": 0.982,
+                "THETA_3_divisor": 24,
+                "NN": 7.0
+            },
+
+            "Jpip" : {
+                "ACL2": 0.75,
+                "M_WE2": 54,
+                "AGE2": 25,
+                "WT2": 54,
+                "THETA2_1": 1329.6,
+                "EM502": 0.575,
+                "HILL2":  5.51,
+                "Q12": 7440.0,
+                "Q22": 2520.0,
+                "V22": 69840.0,
+                "V32": 117840.0,
+                "V42": 741600.0,
+                "THETA2_7_divident": 2.11,
+                "THETA2_7_divisor": 24,
+                "NN2": 2.0
+            }
+        },
+
+        "P0_related_metrics" : {
+            "p0_patent_indicator": 50000000,
+            "p0_peak_divisor": 5000000,
+            "infection_min_threshold": 100
+
+        }
+                
+    },
+
+    "within_host" : {
+        "init_file" : {
+            "name": "data/agestructs/mmc_wp2/rev17_a4_cfv395/20200220232502_agestruct.csv",
+            "delimiter" : "t"
+        }
+    },
+    "drug" : {
+        "failure_if_clinical_on_day" : 28
+
+    }
+    
+}

@@ -1,0 +1,126 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "definitions" : {
+        "simulation" : {
+            "type": "object",
+            "properties" : {
+                "schema_file_name" : {
+                    "description" : "Location and name of the JSON schema file",
+                    "type" : "string"
+                },
+                "total_steps" : {
+                    "description" : "Length of simulation in days.",
+                    "type" : "integer",
+                    "minimum" : 0,
+                    "exclusiveMinimum" : false,
+                    "default" : "100"
+                },
+                "title" : {"type" : "string"},
+                "reports" : {
+                    "description" : "Select from a list of available reports",
+                    "type" : "object",
+                    "properties" : {
+                        "whd_daily" : {"type" : "boolean"}
+
+                    },
+                    "required" : [
+                        "whd_daily"
+                    ]
+                },
+                "batch_mode" : {
+                    "description" : "In batch mode: live plots are disabled; cin.ignore() skipped.",
+                    "type" : "boolean"
+                },
+
+                "export" : {
+                    "description" : "Trigger an export from b_sys at the end of the simulation.",
+                    "type" : "boolean",
+                    "default" : false
+                }
+            },
+            "required" : [
+                "schema_file_name",
+                "total_steps",
+                "title",
+                "batch_mode"
+            ]
+        },
+        "within_host" : {
+            "type": "object",
+            "properties" : {
+                "init_file" : {
+                    "type" : "object",
+                    "properties" : {
+                        "use_old_format" : {"type" : "boolean"},
+                        "name_old_format" : {"type" : "string"},
+                        "name" : {"type" : "string"},
+                        "delimiter" : {
+                            "description" : "not implemented, tab always",
+                            "type" : "string"
+                        },
+                        "use_age_column" : {"type" : "boolean"},
+                        "ra_rate" : {
+                            "description" : "rate of RA type infection",
+                            "type" : "number",
+                            "default" : 0.0,
+                            "minimum" : 0.0,
+                            "maximum" : 0.8,
+                            "exclusiveMinimum" : false,
+                            "exclusiveMaximum" : false
+                        }
+                    },
+                    "required" : ["name", "delimiter"]
+                }
+
+            },
+            "required" : [
+                "init_file"
+            ]
+        },
+        "drug" : {
+            "type" : "object",
+            "properties" : {
+                "failure_if_clinical_on_day" : {
+                    "description" : "Drug failure is recorded if the host is clinical on this number of days after drug given.",
+                    "type" : "integer",
+                    "default" : 28,
+                    "minimum" : 1,
+                    "exclusiveMinimum" : false
+                },
+                "drug_b_resistance" : {
+                    "description" : "Drug B efficacy multiplier for RB",
+                    "type" : "number",
+                    "default" : 0.5,
+                    "minimum" : 0.0,
+                    "maximum" : 1.0,
+                    "exclusiveMinimum" : false,
+                    "exclusiveMaximum" : false
+                },
+                "drug_ab_resistance" : {
+                    "description" : "Drug AB efficacy multiplier for RB",
+                    "type" : "number",
+                    "default" : 0.9,
+                    "minimum" : 0.0,
+                    "maximum" : 1.0,
+                    "exclusiveMinimum" : false,
+                    "exclusiveMaximum" : false
+                }
+            },
+            "required" : ["failure_if_clinical_on_day"]
+        }
+
+
+    },
+
+    "type" : "object",
+    "properties": {
+        "simulation" : {"$ref" : "#/definitions/simulation"},
+        "within_host" : {"$ref" : "#/definitions/within_host"},
+        "drug" : {"$ref" : "#/definitions/drug"}
+    },
+    "required" : [
+        "simulation",
+        "within_host",
+        "drug"    ]
+}
