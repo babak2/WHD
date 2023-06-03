@@ -1,4 +1,4 @@
-# within_host_dynamics_cpp  (draft source doc)
+# WHD model
 
 ## To Build
 
