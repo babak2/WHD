@@ -94,7 +94,7 @@ These are header-only libraries that are included as part of this project. No in
 
 ## License
 
-The HAAMoS model is licensed under the GNU GENERAL PUBLIC LICENSE. See LICENSE for more information.
+The WHD model is licensed under the GNU GENERAL PUBLIC LICENSE. See LICENSE for more information.
 
 ## Author
 
