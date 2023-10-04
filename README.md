@@ -92,5 +92,12 @@ These are header-only libraries that are included as part of this project. No in
 - [Catch2](https://github.com/catchorg/Catch2), v2.1.2, a C++ test framework. `./test/third_party/`
 
 
-## Next
-...
+## License
+
+The HAAMoS model is licensed under the GNU GENERAL PUBLIC LICENSE. See LICENSE for more information.
+
+## Author
+
+Babak Mahdavi Ardestani
+
+babak.m.ardestani@gmail.com
